@@ -1,0 +1,71 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsfonts,amsmath,amssymb,enumerate}
+\usepackage[cp1250]{inputenc}
+\usepackage[croatian]{babel}
+\title{The Main Coding Theory Problem}
+\author{Your name}
+\date{}
+\newtheorem{teo}{Teorema}[section]
+\newtheorem{dfn}{Definicija}[section]
+\newtheorem{lem}{Lema}[section]
+\newtheorem{prop}{Propozicija}[section]
+\newtheorem{coro}{Corollary}[section]
+\newtheorem{dok}{Proof}[section]
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Linear codes with good parameters can be constructed from algebraic curves over finite fields. Since Goppas orginal paper [1] in 1981, there has been a constant flow of research on (1) asympototic properties of these codes, (2) behaviour of these codes on different types of curves, (3) efficient decoding. Here $g$ is the genus of the curve and $m$ is a positive integer satisfying $n>m>2g-2$. An important consequence is that $d$ satisfies $n-k+1\geq d\geq n-k+1-g$. These results are shown in Theorem 2.1 and Corollary 2.2
+\end{abstract}
+\section{Introduction}
+The main definitions are briefly recalled. A linear $q$-ary $[n,k,d]$ code or an $[n,k,d]_q$ code $C$ is subspace of $(F_q)^n$, where the dimension of $C$ is
+\begin{equation*}
+\dim C=k
+\end{equation*}
+and the minimum distance is
+\begin{equation*}
+d(C)=d=\min_{x\in C\backslash\{0\}}\omega(x)=\min_{x\neq y}d(x,y),
+\end{equation*}
+where $\omega(x)$ is the weight of the word $x$ and $d(x,y)$ is the Hamming distance between the words $x$ and $y$. The information rate is
+\begin{equation*}
+R=\frac{k}{n}
+\end{equation*}
+and the relative distance is
+\begin{equation*}
+\delta =\frac{d}{n}
+\end{equation*}
+The Main Coding Theory Problem is to find good codes, those which maximise both $R$ and $\delta$. Let
+\begin{equation*}
+A_q(n,d)=\max\{k|\textrm{ there exists a } q\textrm{-ary }[n,k,d]\textrm{ code}\}.
+\end{equation*}
+Also, let
+\begin{align*}
+\alpha (\delta)&=\limsup_{n\rightarrow\infty}n^{-1}A_q(n,[\delta n]) \\
+&=\limsup R \textrm{ for codes with fixed }\delta
+\end{align*}
+\lem
+\begin{equation}
+\limsup_{n\rightarrow\infty}n^{-1}\log_q\left(\sum_{i=0}^{\lfloor\delta n\rfloor}\dbinom{n}{i}(q-1)^i\right)=H_q(\delta)
+\end{equation}
+\textit{where $H_q$ is an entrophy function given by}
+\begin{align*}
+H_q(0)&=0,\\
+H_q(t)&=t\log_q(q-1)-t\log_qt-(1-t).
+\end{align*}
+\teo(Gilbert-Varshamov)\label{teorema1}
+\begin{equation*}
+\alpha_q(\delta)\geq 1-H_q(\delta).
+\end{equation*}
+
+For many years,\ref{teorema1} was conjectured to be correct lower bound.
+\dfn\begin{enumerate}[(1)]
+      \item  $A$ \textit{ generator matrix $G$ }for $C$ is a $k\times n$ matrix whose rows form basis for $C$
+      \item \textit{A parity check matrix }$H$ is an $(n-k)\times n$ matrix whose rowes form a basis for the dual code $C^{\bot};$ that is, $Hx^*=0$ for all $x\in C,$ where $x^*$ denotes the transpose of $x$.\newline\newline Then $d$ can calculated from the next result.
+    \end{enumerate}
+\prop Every $d-1$ columns of $H$ are linearly independent but some d columns are dependent
+\coro The minimum distance d satisfies $d\leq n-k+1$
+\dok {\normalfont From the proposition, rank$(H)\geq d-1.$ But, by definition, rank$(H)=n-k,$ whence the result.}\hspace*{\fill}$\Box$
+\newline\newline
+When equality is attained in this corollary, the code is /textit{maximum distance separable }(MDS). A geometric view of of a code is given by considering the generator matrix $G$. Let $P^{k-1}=PG(k-1,q)$ be $(k-1)-$dimensional projective space over $F_q=GF(q).$ A \textit{projective} $[n,k]-$system is a family of n
+
+\end{document} 
